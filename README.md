@@ -10,9 +10,11 @@ Start 2 console applications: 1 for the test runner (ng test) and 1 for angular 
 ### Test 1
 * Edit app.component.html and delete its contents then add:
 
+```html
 <div class="content">
   <span>{{ title }} app is running!</span>
 </div>
+```
 
 * View de test results and what's in spec.ts
 
@@ -22,19 +24,27 @@ Start 2 console applications: 1 for the test runner (ng test) and 1 for angular 
 * Now update the angular module by adding the references to the MatCheckboxModule and the FormsModule from Angular Material
 
 * Next update the stylesheet: 
+```css
 p {
     margin: 1em;
   }
+```
+
 
 * In the html add:
+```html
 <p><mat-checkbox [(ngModel)]="checked" id="button">Check me</mat-checkbox></p>
 <p *ngIf="checked" id="box">Box checked!</p>
+```
 
 * In the app.component.ts add:
+```js
 checked!: boolean;
+```
 
 * Finally we will add a test in app.component.spec.ts:
 
+```js
 it('should show if box is checked', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -43,12 +53,14 @@ it('should show if box is checked', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
   });
+  ```
 
 * Make sure the test succeeds
 
 ### Test 3
 * Let's add another test:
 
+```js
 it('should show if box is checked2', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -58,6 +70,7 @@ it('should show if box is checked2', async () => {
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
   });
+  ```
 
 * In the test file include references to FormsModule and MatCheckboxModule
 
@@ -70,6 +83,7 @@ We are now going to use Angular Material's Harness testing functionality.
 
 * Then update the test file with:
 
+```js
   let loader: HarnessLoader;
   let fixture: ComponentFixture<AppComponent>;
   
@@ -84,7 +98,8 @@ We are now going to use Angular Material's Harness testing functionality.
     await buttons[0].check();
     expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
   });
-  
+  ```
+
 * Make sure the test succeeds
 
 ## Extra information
