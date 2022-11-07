@@ -103,8 +103,7 @@ We are now going to use Angular Material's Harness testing functionality.
 * Make sure the test succeeds
 
 ## Extra information
-You can enable test with extra parameters
-ng test --no-watch --code-coverage
+You can enable test with extra parameters (ng test --no-watch --code-coverage)
 
 These settings can be enabled by default by updating the angular.json
 
