@@ -1,0 +1,16 @@
+name: sample-workflow
+on: [push]
+jobs:
+  list-files-workflow:
+    runs-on: ubuntu-latest
+    steps:
+     - run: |
+        echo "Job was automatically triggered by a ${{ github.event_name }} event."
+        echo "- Job details -
+        echo "a ${{ runner.os }} server, branch ${{ github.ref }} and repository ${{ github.repository }}."
+     - name: Check out reposistory code
+       uses: actions/checkout@v2 
+     - name: List files in the repository
+       run: |
+        ls ${{ github.workspace }}
+     - run: echo "Job status is ${{ job.status }}"
