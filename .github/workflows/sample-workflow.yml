@@ -13,5 +13,7 @@ jobs:
      - name: Setup node
        uses: actions/setup-node@v1
      - run: npm ci 
+       working-directory: ./angular-test-basics
      - run: npm build
+       working-directory: ./angular-test-basics
      - run: echo "Job status is ${{ job.status }}"
