@@ -65,7 +65,7 @@ it('should show if box is checked2', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges();
-    const button = fixture.nativeElement.querySelector('#button .mat-checkbox-label')
+    const button = fixture.nativeElement.querySelector('#button input')
     button.click();
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();

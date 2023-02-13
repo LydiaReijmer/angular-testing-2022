@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -7,7 +9,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule, FormsModule, MatCheckboxModule
       ],
       declarations: [
         AppComponent
@@ -40,6 +42,16 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     fixture.detectChanges();
     app.checked = true;
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
+  });
+
+  it('should show if box is checked2', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    const button = fixture.nativeElement.querySelector('#button input')
+    button.click();
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
   });
