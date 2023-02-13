@@ -32,4 +32,13 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('angular-test-basics app is running!');
   });
+
+  it('should show if box is checked', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
+    app.checked = true;
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('#box')).toBeTruthy();
+  });
 });
